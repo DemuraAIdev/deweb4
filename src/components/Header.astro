@@ -1,0 +1,14 @@
+---
+import NavLink from "./NavLink.astro";
+import { headerNavLinks } from "../consts";
+---
+
+<header class="top-0 z-10 bg-white py-5 dark:bg-dark">
+  <nav class="flex items-center justify-between w-full">
+    {
+      headerNavLinks.map((link) => (
+        <NavLink href={link.href} text={link.title} className="space-x-8" />
+      ))
+    }
+  </nav>
+</header>

@@ -1,0 +1,21 @@
+---
+import Link from "./Link.astro";
+const currentPath = Astro.url.pathname;
+
+interface Props {
+  className: string;
+  text: string;
+  href: string;
+}
+const { href, className, text } = Astro.props;
+
+const classes = `hidden rounded-lg transition-all sm:block ${
+  currentPath === href
+    ? "font-semibold text-black hover:text-black dark:text-white dark:hover:text-white"
+    : "font-medium text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white"
+} ${className}`;
+---
+
+<Link href={href} className={classes} showIcon={false}>
+  {text}
+</Link>
